@@ -38,4 +38,4 @@ template: '<li>item</li>'
 同时还要在实例中添加components属性：
 components: {'todo-List': todoList}
 
-vue组件也是一个小的vue实例，所以也可以添加方法，对于一个根实例没有模板，所以会找挂载点
+vue组件也是一个小的vue实例，所以也可以添加方法，对于一个根实例没有模板，所以会找挂载点。

@@ -1,0 +1,34 @@
+jquery和框架的区别：
+1. 数据和视图的分离，解耦
+2. 用数据驱动视图，只关心数据的变化，dom操作被封装
+
+响应式：vue如何监听data每个属性的变化？
+1 什么是响应式
+2 object definepropoty 进行监听
+3 data中的属性如何代理到vm上
+
+模板解析：
+模板是什么？render函数？render函数和vdom
+模板就是一个类似html格式的字符串，具有逻辑性，最终要转化为html来展示（最终转换为js代码）。因为逻辑用js才能实现，转换为html渲染页面，必须js实现；因此
+模板要转换为js函数（render函数）。
+模板中的内容都在render函数在中，返回值是一个vnode。_c _v _l等；
+with语法 返回值
+
+渲染
+vm._patch_()
+snabbdom 中的 patch（）两种用法，一个是全部渲染，一个是新旧对比，渲染差异 vnode=h（）；
+vm._update(vnode)中实现了patch，首次渲染是一个patch，之后的就是更新修改
+function updateComponent(){
+vm._update(vm._render())
+}
+
+vue的整个实现流程
+1 解析模板为render函数
+2 响应式监听
+3 首次渲染 显示页面且绑定依赖
+4 data属性变化， 出发rerender，set触发updateComponent方法，render函数，生成新的vnode对比旧的vnode，第二个patch
+
+挂载在vm的原因是，因为render函数中的with（this），为什么也需要监听get
+
+为什么监听get？
+避免不必要的渲染；有的属性有用，有的没有用；没有get的，set也不关心
